@@ -54,3 +54,11 @@ build dependencies for end users.
 [Terminal documentation](terminal.md) for the mapping and manual checks.
 The standalone `ports/zsh/soli.zsh` prompt uses named ANSI colors and is maintained
 directly. Test runtime behavior with zsh when available.
+
+## Codex CLI port
+
+The generator writes ten XML TextMate `.tmTheme` files to `ports/codex/themes/`
+using stdlib `plistlib`. Global settings map shared UI roles, syntax rules reuse
+`SCOPES`, and inserted/deleted/changed markup uses string/error/warning colors.
+Generated-file checks cover missing, stale, and unexpected Codex themes. See
+[Codex installation](codex.md) for usage, rendering limits, and manual checks.

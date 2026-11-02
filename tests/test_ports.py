@@ -8,6 +8,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tools'))
@@ -18,7 +19,46 @@ from validate import validate, contrast
 class PortsTest(unittest.TestCase):
     def test_sources_and_outputs(self):
         self.assertEqual(validate(), 10)
-        self.assertEqual(generate(check=True), 30)
+        self.assertEqual(generate(check=True), 40)
+
+    def test_codex_themes(self):
+        for palette in load_palettes():
+            with self.subTest(theme=palette['name']):
+                path = ROOT / 'ports/codex/themes' / f'soli-{palette["name"]}.tmTheme'
+                theme = plistlib.loads(path.read_bytes())
+                self.assertEqual(theme['name'], 'Soli ' + palette['name'].title())
+                defaults = theme['settings'][0]['settings']
+                self.assertEqual(defaults['background'], palette['ui']['bg'])
+                self.assertEqual(defaults['foreground'], palette['ui']['fg'])
+                self.assertGreaterEqual(contrast(defaults['foreground'], defaults['selection']), 4.5)
+                rules = {rule['scope']: rule['settings'] for rule in theme['settings'][1:]}
+                self.assertEqual(rules['markup.inserted']['foreground'], palette['syntax']['string'])
+                self.assertEqual(rules['markup.deleted']['foreground'], palette['syntax']['error'])
+                self.assertEqual(rules['markup.changed']['foreground'], palette['syntax']['warning'])
+                self.assertEqual(rules['entity.name.function, support.function']['foreground'],
+                                 palette['syntax']['function'])
+                for style in rules.values():
+                    self.assertGreaterEqual(contrast(style['foreground'], defaults['background']), 4.5)
+                    self.assertIn(style['foreground'], palette['syntax'].values())
+
+    def test_codex_output_consistency(self):
+        # Check missing, altered, and obsolete themes without touching real outputs.
+        palettes = load_palettes()
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            with patch('generate.ROOT', root), patch('generate.load_palettes', return_value=palettes):
+                self.assertEqual(generate(), 40)
+                theme = root / 'ports/codex/themes/soli-tekhelet.tmTheme'
+                theme.write_text('stale')
+                with self.assertRaisesRegex(ValueError, 'soli-tekhelet.tmTheme'):
+                    generate(check=True)
+                theme.unlink()
+                with self.assertRaisesRegex(ValueError, 'soli-tekhelet.tmTheme'):
+                    generate(check=True)
+                generate()
+                (theme.parent / 'obsolete.tmTheme').write_text('obsolete')
+                with self.assertRaisesRegex(ValueError, 'obsolete.tmTheme'):
+                    generate(check=True)
 
     def test_terminal_profiles(self):
         def decode(blob):
