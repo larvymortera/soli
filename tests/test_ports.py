@@ -19,7 +19,7 @@ from validate import validate, contrast
 class PortsTest(unittest.TestCase):
     def test_sources_and_outputs(self):
         self.assertEqual(validate(), 10)
-        self.assertEqual(generate(check=True), 50)
+        self.assertEqual(generate(check=True), 60)
 
     def test_codex_themes(self):
         for palette in load_palettes():
@@ -47,7 +47,7 @@ class PortsTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
             with patch('generate.ROOT', root), patch('generate.load_palettes', return_value=palettes):
-                self.assertEqual(generate(), 50)
+                self.assertEqual(generate(), 60)
                 theme = root / 'ports/codex/themes/soli-tekhelet.tmTheme'
                 theme.write_text('stale')
                 with self.assertRaisesRegex(ValueError, 'soli-tekhelet.tmTheme'):
@@ -100,6 +100,58 @@ class PortsTest(unittest.TestCase):
                     generate(check=True)
                 theme.unlink()
                 with self.assertRaisesRegex(ValueError, 'soli-manna.json'):
+                    generate(check=True)
+                generate()
+                (theme.parent / 'obsolete.json').write_text('{}')
+                with self.assertRaisesRegex(ValueError, 'obsolete.json'):
+                    generate(check=True)
+
+    def test_opencode_themes(self):
+        for palette in load_palettes():
+            with self.subTest(theme=palette['name']):
+                path = ROOT / 'ports/opencode/themes' / f'soli-{palette["name"]}.json'
+                document = json.loads(path.read_text())
+                self.assertEqual(set(document), {'$schema', 'theme'})
+                colors = document['theme']
+                self.assertEqual(colors['background'], palette['ui']['bg'])
+                self.assertEqual(colors['primary'], palette['ui']['accent'])
+                self.assertEqual(colors['syntaxKeyword'], palette['syntax']['keyword'])
+                self.assertEqual(colors['syntaxFunction'], palette['syntax']['function'])
+                self.assertEqual(colors['diffAdded'], palette['syntax']['string'])
+                self.assertEqual(colors['diffRemoved'], palette['syntax']['error'])
+                for color in colors.values():
+                    self.assertIn(color, set(palette['ui'].values()) | set(palette['syntax'].values()))
+                backgrounds = {'background', 'backgroundPanel', 'backgroundElement',
+                               'diffAddedBg', 'diffRemovedBg', 'diffContextBg',
+                               'diffAddedLineNumberBg', 'diffRemovedLineNumberBg'}
+                boundaries = {'border', 'borderSubtle', 'borderActive', 'markdownHorizontalRule'}
+                for token, color in colors.items():
+                    if token not in backgrounds | boundaries | {'selectedListItemText'}:
+                        self.assertGreaterEqual(contrast(color, colors['background']), 4.5, token)
+                for token in ('text', 'textMuted', 'primary'):
+                    for background in ('backgroundPanel', 'backgroundElement'):
+                        self.assertGreaterEqual(contrast(colors[token], colors[background]), 4.5)
+                for token in boundaries:
+                    self.assertGreaterEqual(contrast(colors[token], colors['background']), 3)
+                self.assertGreaterEqual(contrast(colors['selectedListItemText'], colors['primary']), 4.5)
+                for foreground, background in (
+                        ('diffAdded', 'diffAddedBg'), ('diffRemoved', 'diffRemovedBg'),
+                        ('diffContext', 'diffContextBg'), ('diffLineNumber', 'diffAddedLineNumberBg'),
+                        ('diffLineNumber', 'diffRemovedLineNumberBg')):
+                    self.assertGreaterEqual(contrast(colors[foreground], colors[background]), 4.5)
+
+    def test_opencode_output_consistency(self):
+        palettes = load_palettes()
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            with patch('generate.ROOT', root), patch('generate.load_palettes', return_value=palettes):
+                generate()
+                theme = root / 'ports/opencode/themes/soli-eden.json'
+                theme.write_text('{}')
+                with self.assertRaisesRegex(ValueError, 'soli-eden.json'):
+                    generate(check=True)
+                theme.unlink()
+                with self.assertRaisesRegex(ValueError, 'soli-eden.json'):
                     generate(check=True)
                 generate()
                 (theme.parent / 'obsolete.json').write_text('{}')

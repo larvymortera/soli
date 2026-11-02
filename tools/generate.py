@@ -106,6 +106,44 @@ def claude_theme(palette):
                        'overrides': overrides}, indent=2) + '\n'
 
 
+def opencode_theme(palette):
+    """Map fixed Soli palettes to OpenCode's native theme tokens."""
+    ui, syntax = palette['ui'], palette['syntax']
+    theme = {token: ui[role] for token, role in {
+        'primary': 'accent', 'accent': 'accent', 'info': 'accent',
+        'text': 'fg', 'textMuted': 'muted', 'background': 'bg',
+        # Keep secondary text readable on both panel and element backgrounds.
+        'backgroundPanel': 'surface', 'backgroundElement': 'surface',
+        'border': 'border', 'borderActive': 'accent', 'borderSubtle': 'border',
+        'selectedListItemText': 'bg',
+        'diffContext': 'fg', 'diffHunkHeader': 'muted',
+        # Source palettes have no diff-specific surfaces. Use the validated
+        # editor background; +/- markers and foreground hues convey the change.
+        'diffAddedBg': 'bg', 'diffRemovedBg': 'bg', 'diffContextBg': 'bg',
+        'diffLineNumber': 'muted', 'diffAddedLineNumberBg': 'bg',
+        'diffRemovedLineNumberBg': 'bg',
+        'markdownText': 'fg', 'markdownHeading': 'accent',
+        'markdownLink': 'accent', 'markdownLinkText': 'accent',
+        'markdownBlockQuote': 'muted', 'markdownEmph': 'fg',
+        'markdownStrong': 'fg', 'markdownHorizontalRule': 'border',
+        'markdownListItem': 'accent', 'markdownListEnumeration': 'accent',
+        'markdownImage': 'accent', 'markdownImageText': 'accent',
+        'markdownCodeBlock': 'fg', 'syntaxVariable': 'fg',
+        'syntaxPunctuation': 'fg',
+    }.items()}
+    theme.update({token: syntax[role] for token, role in {
+        'secondary': 'keyword', 'error': 'error', 'warning': 'warning',
+        'success': 'string', 'diffAdded': 'string', 'diffRemoved': 'error',
+        'diffHighlightAdded': 'string', 'diffHighlightRemoved': 'error',
+        'markdownCode': 'string', 'syntaxComment': 'comment',
+        'syntaxKeyword': 'keyword', 'syntaxFunction': 'function',
+        'syntaxString': 'string', 'syntaxNumber': 'number',
+        'syntaxType': 'type', 'syntaxOperator': 'keyword',
+    }.items()})
+    return json.dumps({'$schema': 'https://opencode.ai/theme.json',
+                       'theme': theme}, indent=2) + '\n'
+
+
 def load_palettes():
     return [json.loads(p.read_text()) for p in sorted((ROOT / 'palettes').glob('*/*.json'))]
 
@@ -118,6 +156,7 @@ def outputs(palette):
     yield ROOT / 'ports/terminal/profiles' / f'Soli {name.title()}.terminal', terminal_profile(palette)
     yield ROOT / 'ports/codex/themes' / f'soli-{name}.tmTheme', codex_theme(palette)
     yield ROOT / 'ports/claude/themes' / f'soli-{name}.json', claude_theme(palette)
+    yield ROOT / 'ports/opencode/themes' / f'soli-{name}.json', opencode_theme(palette)
     variables = dict(ui, **syntax)
     globals_ = {key: f'var({role})' for key, role in {
         'background': 'bg', 'foreground': 'fg', 'caret': 'accent',
@@ -149,7 +188,8 @@ def generate(check=False):
                             ('ports/sublime/schemes', '*.sublime-color-scheme'),
                             ('ports/terminal/profiles', '*.terminal'),
                             ('ports/codex/themes', '*.tmTheme'),
-                            ('ports/claude/themes', '*.json')]:
+                            ('ports/claude/themes', '*.json'),
+                            ('ports/opencode/themes', '*.json')]:
         stale.extend(str(p.relative_to(ROOT)) for p in (ROOT / folder).glob(pattern) if p not in expected)
     if stale:
         raise ValueError('Missing, stale, or unexpected outputs: ' + ', '.join(stale))

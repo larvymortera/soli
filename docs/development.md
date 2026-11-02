@@ -72,3 +72,14 @@ the base preset. Shimmer tokens reuse their corresponding base colors; no new
 shades are invented. `subtle` uses muted text because it also renders text.
 Tests cover JSON structure, intended contrast pairs, and stale/missing/unexpected
 outputs. See [Claude Code installation](claude.md) for scope and manual checks.
+
+## OpenCode port
+
+The generator writes ten native JSON themes to `ports/opencode/themes/` with
+literal hex values. Each file is a fixed preset in either appearance mode.
+Interface, Markdown, syntax, and diff mappings live in `opencode_theme`.
+Panel and element backgrounds use `surface` to keep secondary text readable.
+Diff backgrounds use `bg`, preserving source colors and foreground contrast;
+added/removed foreground hues and +/- markers distinguish changes. Tests cover
+intended contrast pairs and missing/stale/unexpected outputs. See
+[OpenCode installation](opencode.md) for usage and manual checks.
