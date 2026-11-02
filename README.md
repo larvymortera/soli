@@ -37,15 +37,44 @@ a preset with `@soli-theme`; there is no separate `@soli-mode` setting.
 ## Project layout
 
 ```text
-palettes/{day,night}/      Source palettes (JSON)
-ports/tmux/scripts/       tmux loader and helpers
-ports/tmux/themes/        Generated tmux palettes
-ports/sublime/schemes/    Generated Sublime color schemes
-tools/                    Generation and validation (Python standard library)
-docs/                     Installation and contributor guides
-previews/                 Sample source for visual checks
-soli.tmux                 Root TPM entry point
+soli/
+├── palettes/                       # Source of truth for all application ports
+│   ├── day/*.json                  # Five light palettes
+│   └── night/*.json                # Five dark palettes
+├── ports/
+│   ├── tmux/
+│   │   ├── scripts/
+│   │   │   ├── init.sh             # Validate options and apply the status layout
+│   │   │   └── helpers.sh          # Read tmux options and validate colors
+│   │   └── themes/*.tmuxtheme      # Generated palettes; eight interface roles
+│   └── sublime/
+│       └── schemes/
+│           └── *.sublime-color-scheme  # Generated editor and syntax colors
+├── tools/
+│   ├── generate.py                 # Map shared palettes to native formats
+│   └── validate.py                 # Check structure, contrast, and output consistency
+├── tests/
+│   └── test_ports.py               # Check generated files and tmux loader behavior
+├── previews/
+│   └── sample.py                   # Sample syntax for visual checks in editors
+├── docs/
+│   ├── tmux.md                     # TPM installation, options, and preview
+│   ├── sublime.md                  # Color scheme installation and visual checks
+│   └── development.md              # Palette roles and adding application ports
+├── soli.tmux                       # Root TPM entry point
+├── .gitignore                      # Ignore macOS metadata and Python caches
+├── README.md
+└── LICENSE
 ```
+
+Edit colors in `palettes/` and application mappings in `tools/generate.py`.
+Generation produces the native files under `ports/tmux/themes/` and
+`ports/sublime/schemes/`; include those outputs alongside source changes.
+The tmux runtime scripts are maintained directly in `ports/tmux/scripts/`.
+
+Users install the native port files directly. The root `soli.tmux` delegates to
+the tmux loader, while Sublime reads the generated color schemes. Neither port
+runs the Python tooling during normal use.
 
 ## Development
 
