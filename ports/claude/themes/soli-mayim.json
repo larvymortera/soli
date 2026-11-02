@@ -1,0 +1,33 @@
+{
+  "name": "Soli Mayim",
+  "base": "light",
+  "overrides": {
+    "claude": "#176579",
+    "claudeShimmer": "#176579",
+    "text": "#19343e",
+    "inverseText": "#f1f8fb",
+    "inactive": "#476372",
+    "inactiveShimmer": "#476372",
+    "subtle": "#476372",
+    "suggestion": "#176579",
+    "permission": "#176579",
+    "permissionShimmer": "#176579",
+    "promptBorder": "#698794",
+    "promptBorderShimmer": "#698794",
+    "planMode": "#176579",
+    "userMessageBackground": "#e1eef4",
+    "userMessageBackgroundHover": "#e1eef4",
+    "bashMessageBackgroundColor": "#e1eef4",
+    "memoryBackgroundColor": "#e1eef4",
+    "selectionBg": "#b5d3df",
+    "composerSidebarBackground": "#e1eef4",
+    "briefLabelYou": "#19343e",
+    "briefLabelClaude": "#176579",
+    "success": "#386637",
+    "error": "#a03748",
+    "warning": "#795b19",
+    "warningShimmer": "#795b19",
+    "merged": "#694b8a",
+    "remember": "#385c93"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Soli Shachar",
+  "base": "light",
+  "overrides": {
+    "claude": "#994655",
+    "claudeShimmer": "#994655",
+    "text": "#42282d",
+    "inverseText": "#fcf3f1",
+    "inactive": "#77575e",
+    "inactiveShimmer": "#77575e",
+    "subtle": "#77575e",
+    "suggestion": "#994655",
+    "permission": "#994655",
+    "permissionShimmer": "#994655",
+    "promptBorder": "#a2767c",
+    "promptBorderShimmer": "#a2767c",
+    "planMode": "#994655",
+    "userMessageBackground": "#f3e3df",
+    "userMessageBackgroundHover": "#f3e3df",
+    "bashMessageBackgroundColor": "#f3e3df",
+    "memoryBackgroundColor": "#f3e3df",
+    "selectionBg": "#ddb8b0",
+    "composerSidebarBackground": "#f3e3df",
+    "briefLabelYou": "#42282d",
+    "briefLabelClaude": "#994655",
+    "success": "#41633c",
+    "error": "#a02d3d",
+    "warning": "#795817",
+    "warningShimmer": "#795817",
+    "merged": "#794785",
+    "remember": "#994655"
+  }
+}

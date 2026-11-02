@@ -1,0 +1,33 @@
+{
+  "name": "Soli Eden",
+  "base": "dark",
+  "overrides": {
+    "claude": "#b4d39a",
+    "claudeShimmer": "#b4d39a",
+    "text": "#edf4e8",
+    "inverseText": "#131c16",
+    "inactive": "#afc3a5",
+    "inactiveShimmer": "#afc3a5",
+    "subtle": "#afc3a5",
+    "suggestion": "#b4d39a",
+    "permission": "#b4d39a",
+    "permissionShimmer": "#b4d39a",
+    "promptBorder": "#738e69",
+    "promptBorderShimmer": "#738e69",
+    "planMode": "#b4d39a",
+    "userMessageBackground": "#1b2b20",
+    "userMessageBackgroundHover": "#1b2b20",
+    "bashMessageBackgroundColor": "#1b2b20",
+    "memoryBackgroundColor": "#1b2b20",
+    "selectionBg": "#405b3a",
+    "composerSidebarBackground": "#1b2b20",
+    "briefLabelYou": "#edf4e8",
+    "briefLabelClaude": "#b4d39a",
+    "success": "#b4d39a",
+    "error": "#e9a3a1",
+    "warning": "#dbcf8c",
+    "warningShimmer": "#dbcf8c",
+    "merged": "#c7b4df",
+    "remember": "#a2c5df"
+  }
+}

@@ -19,7 +19,7 @@ from validate import validate, contrast
 class PortsTest(unittest.TestCase):
     def test_sources_and_outputs(self):
         self.assertEqual(validate(), 10)
-        self.assertEqual(generate(check=True), 40)
+        self.assertEqual(generate(check=True), 50)
 
     def test_codex_themes(self):
         for palette in load_palettes():
@@ -47,7 +47,7 @@ class PortsTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
             with patch('generate.ROOT', root), patch('generate.load_palettes', return_value=palettes):
-                self.assertEqual(generate(), 40)
+                self.assertEqual(generate(), 50)
                 theme = root / 'ports/codex/themes/soli-tekhelet.tmTheme'
                 theme.write_text('stale')
                 with self.assertRaisesRegex(ValueError, 'soli-tekhelet.tmTheme'):
@@ -58,6 +58,52 @@ class PortsTest(unittest.TestCase):
                 generate()
                 (theme.parent / 'obsolete.tmTheme').write_text('obsolete')
                 with self.assertRaisesRegex(ValueError, 'obsolete.tmTheme'):
+                    generate(check=True)
+
+    def test_claude_themes(self):
+        for palette in load_palettes():
+            with self.subTest(theme=palette['name']):
+                path = ROOT / 'ports/claude/themes' / f'soli-{palette["name"]}.json'
+                theme = json.loads(path.read_text())
+                self.assertEqual(set(theme), {'name', 'base', 'overrides'})
+                self.assertEqual(theme['name'], 'Soli ' + palette['name'].title())
+                self.assertEqual(theme['base'], 'light' if palette['mode'] == 'day' else 'dark')
+                colors = theme['overrides']
+                self.assertEqual(colors['text'], palette['ui']['fg'])
+                self.assertEqual(colors['claude'], palette['ui']['accent'])
+                self.assertEqual(colors['success'], palette['syntax']['string'])
+                self.assertEqual(colors['error'], palette['syntax']['error'])
+                self.assertEqual(colors['warning'], palette['syntax']['warning'])
+                self.assertNotIn('diffAdded', colors)  # Preserve semantic base diff colors.
+                self.assertNotIn('diffRemoved', colors)
+                for color in colors.values():
+                    self.assertIn(color, set(palette['ui'].values()) | set(palette['syntax'].values()))
+                for token in ('text', 'inactive', 'subtle', 'claude', 'success', 'error', 'warning'):
+                    self.assertGreaterEqual(contrast(colors[token], palette['ui']['bg']), 4.5)
+                for token in ('text', 'inactive', 'subtle', 'claude'):
+                    self.assertGreaterEqual(contrast(colors[token], colors['userMessageBackground']), 4.5)
+                self.assertGreaterEqual(contrast(colors['text'], colors['selectionBg']), 4.5)
+                self.assertGreaterEqual(contrast(colors['inverseText'], colors['claude']), 4.5)
+                self.assertGreaterEqual(contrast(colors['promptBorder'], palette['ui']['bg']), 3)
+                for token in ('claude', 'warning', 'permission', 'promptBorder', 'inactive'):
+                    self.assertEqual(colors[token], colors[token + 'Shimmer'])
+
+    def test_claude_output_consistency(self):
+        palettes = load_palettes()
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            with patch('generate.ROOT', root), patch('generate.load_palettes', return_value=palettes):
+                generate()
+                theme = root / 'ports/claude/themes/soli-manna.json'
+                theme.write_text('{}')
+                with self.assertRaisesRegex(ValueError, 'soli-manna.json'):
+                    generate(check=True)
+                theme.unlink()
+                with self.assertRaisesRegex(ValueError, 'soli-manna.json'):
+                    generate(check=True)
+                generate()
+                (theme.parent / 'obsolete.json').write_text('{}')
+                with self.assertRaisesRegex(ValueError, 'obsolete.json'):
                     generate(check=True)
 
     def test_terminal_profiles(self):

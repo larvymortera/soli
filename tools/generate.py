@@ -82,6 +82,30 @@ def codex_theme(palette):
     }, sort_keys=True).decode('utf-8')
 
 
+def claude_theme(palette):
+    """Use documented Claude Code tokens; retain base syntax and diff colors."""
+    ui, syntax = palette['ui'], palette['syntax']
+    overrides = {token: ui[role] for token, role in {
+        'claude': 'accent', 'claudeShimmer': 'accent', 'text': 'fg',
+        'inverseText': 'bg', 'inactive': 'muted', 'inactiveShimmer': 'muted',
+        # Subtle can render text as well as borders, so use readable muted text.
+        'subtle': 'muted', 'suggestion': 'accent', 'permission': 'accent',
+        'permissionShimmer': 'accent', 'promptBorder': 'border',
+        'promptBorderShimmer': 'border', 'planMode': 'accent',
+        'userMessageBackground': 'surface', 'userMessageBackgroundHover': 'surface',
+        'bashMessageBackgroundColor': 'surface', 'memoryBackgroundColor': 'surface',
+        'selectionBg': 'selection', 'composerSidebarBackground': 'surface',
+        'briefLabelYou': 'fg', 'briefLabelClaude': 'accent',
+    }.items()}
+    overrides.update({token: syntax[role] for token, role in {
+        'success': 'string', 'error': 'error', 'warning': 'warning',
+        'warningShimmer': 'warning', 'merged': 'keyword', 'remember': 'type',
+    }.items()})
+    return json.dumps({'name': 'Soli ' + palette['name'].title(),
+                       'base': 'light' if palette['mode'] == 'day' else 'dark',
+                       'overrides': overrides}, indent=2) + '\n'
+
+
 def load_palettes():
     return [json.loads(p.read_text()) for p in sorted((ROOT / 'palettes').glob('*/*.json'))]
 
@@ -93,6 +117,7 @@ def outputs(palette):
     yield ROOT / 'ports/tmux/themes' / f'{name}.tmuxtheme', tmux
     yield ROOT / 'ports/terminal/profiles' / f'Soli {name.title()}.terminal', terminal_profile(palette)
     yield ROOT / 'ports/codex/themes' / f'soli-{name}.tmTheme', codex_theme(palette)
+    yield ROOT / 'ports/claude/themes' / f'soli-{name}.json', claude_theme(palette)
     variables = dict(ui, **syntax)
     globals_ = {key: f'var({role})' for key, role in {
         'background': 'bg', 'foreground': 'fg', 'caret': 'accent',
@@ -123,7 +148,8 @@ def generate(check=False):
     for folder, pattern in [('ports/tmux/themes', '*.tmuxtheme'),
                             ('ports/sublime/schemes', '*.sublime-color-scheme'),
                             ('ports/terminal/profiles', '*.terminal'),
-                            ('ports/codex/themes', '*.tmTheme')]:
+                            ('ports/codex/themes', '*.tmTheme'),
+                            ('ports/claude/themes', '*.json')]:
         stale.extend(str(p.relative_to(ROOT)) for p in (ROOT / folder).glob(pattern) if p not in expected)
     if stale:
         raise ValueError('Missing, stale, or unexpected outputs: ' + ', '.join(stale))

@@ -1,11 +1,13 @@
 # Soli
 
-Ten coordinated day and night palettes for tmux, Sublime Text, macOS Terminal, and Codex CLI.
+Ten coordinated day and night palettes for tmux, Sublime Text, macOS Terminal,
+Codex CLI, and Claude Code.
 Shared JSON palettes generate native application files; users do not need Python
 to install the generated ports. The tmux port requires Bash and tmux; Sublime
 schemes target Sublime Text 3.1 and later. No special fonts are required.
 
 - [tmux installation, options, and preview](docs/tmux.md)
+- [Claude Code installation](docs/claude.md)
 - [Codex CLI installation](docs/codex.md)
 - [Sublime Text installation](docs/sublime.md)
 - [macOS Terminal and plain zsh](docs/terminal.md)
@@ -49,6 +51,7 @@ soli/
 │   │   │   ├── init.sh             # Validate options and apply the status layout
 │   │   │   └── helpers.sh          # Read tmux options and validate colors
 │   │   └── themes/*.tmuxtheme      # Generated palettes; eight interface roles
+│   ├── claude/themes/*.json        # Generated Claude Code interface themes
 │   ├── codex/themes/*.tmTheme      # Generated Codex CLI syntax themes
 │   ├── terminal/profiles/          # Generated macOS .terminal profiles
 │   ├── zsh/soli.zsh                # Optional plain-zsh ANSI prompt
@@ -64,6 +67,7 @@ soli/
 │   └── sample.py                   # Sample syntax for visual checks in editors
 ├── docs/
 │   ├── tmux.md                     # TPM installation, options, and preview
+│   ├── claude.md                   # Claude Code installation and visual checks
 │   ├── codex.md                    # Codex CLI installation and visual checks
 │   ├── sublime.md                  # Color scheme installation and visual checks
 │   └── development.md              # Palette roles and adding application ports
@@ -75,8 +79,8 @@ soli/
 
 Edit colors in `palettes/` and application mappings in `tools/generate.py`.
 Generation produces the native files under `ports/tmux/themes/`,
-`ports/sublime/schemes/`, `ports/terminal/profiles/`, and `ports/codex/themes/`; include those outputs
-alongside source changes.
+`ports/sublime/schemes/`, `ports/terminal/profiles/`, `ports/codex/themes/`, and
+`ports/claude/themes/`; include those outputs alongside source changes.
 The tmux runtime scripts are maintained directly in `ports/tmux/scripts/`.
 
 Users install the native port files directly. The root `soli.tmux` delegates to

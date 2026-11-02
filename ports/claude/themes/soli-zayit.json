@@ -1,0 +1,33 @@
+{
+  "name": "Soli Zayit",
+  "base": "light",
+  "overrides": {
+    "claude": "#4d682f",
+    "claudeShimmer": "#4d682f",
+    "text": "#28351e",
+    "inverseText": "#f4f7ee",
+    "inactive": "#596747",
+    "inactiveShimmer": "#596747",
+    "subtle": "#596747",
+    "suggestion": "#4d682f",
+    "permission": "#4d682f",
+    "permissionShimmer": "#4d682f",
+    "promptBorder": "#7b8b65",
+    "promptBorderShimmer": "#7b8b65",
+    "planMode": "#4d682f",
+    "userMessageBackground": "#e6ecdb",
+    "userMessageBackgroundHover": "#e6ecdb",
+    "bashMessageBackgroundColor": "#e6ecdb",
+    "memoryBackgroundColor": "#e6ecdb",
+    "selectionBg": "#c2d0ac",
+    "composerSidebarBackground": "#e6ecdb",
+    "briefLabelYou": "#28351e",
+    "briefLabelClaude": "#4d682f",
+    "success": "#4d682f",
+    "error": "#a03442",
+    "warning": "#795b19",
+    "warningShimmer": "#795b19",
+    "merged": "#754983",
+    "remember": "#5f548b"
+  }
+}

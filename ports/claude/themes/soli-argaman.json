@@ -1,0 +1,33 @@
+{
+  "name": "Soli Argaman",
+  "base": "dark",
+  "overrides": {
+    "claude": "#cf9bf0",
+    "claudeShimmer": "#cf9bf0",
+    "text": "#eee5f5",
+    "inverseText": "#15111f",
+    "inactive": "#b6a5c8",
+    "inactiveShimmer": "#b6a5c8",
+    "subtle": "#b6a5c8",
+    "suggestion": "#cf9bf0",
+    "permission": "#cf9bf0",
+    "permissionShimmer": "#cf9bf0",
+    "promptBorder": "#82658f",
+    "promptBorderShimmer": "#82658f",
+    "planMode": "#cf9bf0",
+    "userMessageBackground": "#21182c",
+    "userMessageBackgroundHover": "#21182c",
+    "bashMessageBackgroundColor": "#21182c",
+    "memoryBackgroundColor": "#21182c",
+    "selectionBg": "#64375b",
+    "composerSidebarBackground": "#21182c",
+    "briefLabelYou": "#eee5f5",
+    "briefLabelClaude": "#cf9bf0",
+    "success": "#aed6a1",
+    "error": "#f5a0ac",
+    "warning": "#e5d08e",
+    "warningShimmer": "#e5d08e",
+    "merged": "#cf9bf0",
+    "remember": "#a3c9ed"
+  }
+}

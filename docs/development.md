@@ -62,3 +62,13 @@ using stdlib `plistlib`. Global settings map shared UI roles, syntax rules reuse
 `SCOPES`, and inserted/deleted/changed markup uses string/error/warning colors.
 Generated-file checks cover missing, stale, and unexpected Codex themes. See
 [Codex installation](codex.md) for usage, rendering limits, and manual checks.
+
+## Claude Code port
+
+The generator writes ten native JSON themes to `ports/claude/themes/`. Each
+selects a light or dark base from the source mode and maps documented interface
+tokens to shared UI and diagnostic roles. Syntax and diff colors fall through to
+the base preset. Shimmer tokens reuse their corresponding base colors; no new
+shades are invented. `subtle` uses muted text because it also renders text.
+Tests cover JSON structure, intended contrast pairs, and stale/missing/unexpected
+outputs. See [Claude Code installation](claude.md) for scope and manual checks.

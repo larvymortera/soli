@@ -1,0 +1,33 @@
+{
+  "name": "Soli Shekinah",
+  "base": "light",
+  "overrides": {
+    "claude": "#68408d",
+    "claudeShimmer": "#68408d",
+    "text": "#2e203e",
+    "inverseText": "#faf7fd",
+    "inactive": "#655471",
+    "inactiveShimmer": "#655471",
+    "subtle": "#655471",
+    "suggestion": "#68408d",
+    "permission": "#68408d",
+    "permissionShimmer": "#68408d",
+    "promptBorder": "#8b6e9c",
+    "promptBorderShimmer": "#8b6e9c",
+    "planMode": "#68408d",
+    "userMessageBackground": "#eee7f5",
+    "userMessageBackgroundHover": "#eee7f5",
+    "bashMessageBackgroundColor": "#eee7f5",
+    "memoryBackgroundColor": "#eee7f5",
+    "selectionBg": "#d4b8e8",
+    "composerSidebarBackground": "#eee7f5",
+    "briefLabelYou": "#2e203e",
+    "briefLabelClaude": "#68408d",
+    "success": "#3b663c",
+    "error": "#a02d46",
+    "warning": "#795916",
+    "warningShimmer": "#795916",
+    "merged": "#68408d",
+    "remember": "#79528a"
+  }
+}

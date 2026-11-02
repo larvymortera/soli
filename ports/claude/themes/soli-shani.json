@@ -1,0 +1,33 @@
+{
+  "name": "Soli Shani",
+  "base": "dark",
+  "overrides": {
+    "claude": "#f49ba9",
+    "claudeShimmer": "#f49ba9",
+    "text": "#ffe9ed",
+    "inverseText": "#211014",
+    "inactive": "#d9a6b0",
+    "inactiveShimmer": "#d9a6b0",
+    "subtle": "#d9a6b0",
+    "suggestion": "#f49ba9",
+    "permission": "#f49ba9",
+    "permissionShimmer": "#f49ba9",
+    "promptBorder": "#a76c7a",
+    "promptBorderShimmer": "#a76c7a",
+    "planMode": "#f49ba9",
+    "userMessageBackground": "#30191e",
+    "userMessageBackgroundHover": "#30191e",
+    "bashMessageBackgroundColor": "#30191e",
+    "memoryBackgroundColor": "#30191e",
+    "selectionBg": "#6d3041",
+    "composerSidebarBackground": "#30191e",
+    "briefLabelYou": "#ffe9ed",
+    "briefLabelClaude": "#f49ba9",
+    "success": "#bed39c",
+    "error": "#ffa0a0",
+    "warning": "#e5d192",
+    "warningShimmer": "#e5d192",
+    "merged": "#e7adf0",
+    "remember": "#a8c8e8"
+  }
+}

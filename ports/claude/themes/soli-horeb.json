@@ -1,0 +1,33 @@
+{
+  "name": "Soli Horeb",
+  "base": "dark",
+  "overrides": {
+    "claude": "#b6c5d4",
+    "claudeShimmer": "#b6c5d4",
+    "text": "#edf2f7",
+    "inverseText": "#171b20",
+    "inactive": "#aab7c4",
+    "inactiveShimmer": "#aab7c4",
+    "subtle": "#aab7c4",
+    "suggestion": "#b6c5d4",
+    "permission": "#b6c5d4",
+    "permissionShimmer": "#b6c5d4",
+    "promptBorder": "#72869b",
+    "promptBorderShimmer": "#72869b",
+    "planMode": "#b6c5d4",
+    "userMessageBackground": "#222930",
+    "userMessageBackgroundHover": "#222930",
+    "bashMessageBackgroundColor": "#222930",
+    "memoryBackgroundColor": "#222930",
+    "selectionBg": "#455566",
+    "composerSidebarBackground": "#222930",
+    "briefLabelYou": "#edf2f7",
+    "briefLabelClaude": "#b6c5d4",
+    "success": "#b3cca1",
+    "error": "#e5a2a7",
+    "warning": "#d8ca91",
+    "warningShimmer": "#d8ca91",
+    "merged": "#c3b3e5",
+    "remember": "#b1c4e8"
+  }
+}

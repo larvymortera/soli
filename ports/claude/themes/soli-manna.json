@@ -1,0 +1,33 @@
+{
+  "name": "Soli Manna",
+  "base": "light",
+  "overrides": {
+    "claude": "#805b17",
+    "claudeShimmer": "#805b17",
+    "text": "#362b19",
+    "inverseText": "#fbf7ed",
+    "inactive": "#6b5d43",
+    "inactiveShimmer": "#6b5d43",
+    "subtle": "#6b5d43",
+    "suggestion": "#805b17",
+    "permission": "#805b17",
+    "permissionShimmer": "#805b17",
+    "promptBorder": "#927b50",
+    "promptBorderShimmer": "#927b50",
+    "planMode": "#805b17",
+    "userMessageBackground": "#f0e9d9",
+    "userMessageBackgroundHover": "#f0e9d9",
+    "bashMessageBackgroundColor": "#f0e9d9",
+    "memoryBackgroundColor": "#f0e9d9",
+    "selectionBg": "#d9c69b",
+    "composerSidebarBackground": "#f0e9d9",
+    "briefLabelYou": "#362b19",
+    "briefLabelClaude": "#805b17",
+    "success": "#46632c",
+    "error": "#a32e38",
+    "warning": "#805b17",
+    "warningShimmer": "#805b17",
+    "merged": "#75428a",
+    "remember": "#785333"
+  }
+}

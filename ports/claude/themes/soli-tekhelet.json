@@ -1,0 +1,33 @@
+{
+  "name": "Soli Tekhelet",
+  "base": "dark",
+  "overrides": {
+    "claude": "#76d7ed",
+    "claudeShimmer": "#76d7ed",
+    "text": "#e6f0ff",
+    "inverseText": "#101629",
+    "inactive": "#a7b8d5",
+    "inactiveShimmer": "#a7b8d5",
+    "subtle": "#a7b8d5",
+    "suggestion": "#76d7ed",
+    "permission": "#76d7ed",
+    "permissionShimmer": "#76d7ed",
+    "promptBorder": "#667da7",
+    "promptBorderShimmer": "#667da7",
+    "planMode": "#76d7ed",
+    "userMessageBackground": "#17213a",
+    "userMessageBackgroundHover": "#17213a",
+    "bashMessageBackgroundColor": "#17213a",
+    "memoryBackgroundColor": "#17213a",
+    "selectionBg": "#304b72",
+    "composerSidebarBackground": "#17213a",
+    "briefLabelYou": "#e6f0ff",
+    "briefLabelClaude": "#76d7ed",
+    "success": "#a8d5a2",
+    "error": "#ff9da4",
+    "warning": "#ead18b",
+    "warningShimmer": "#ead18b",
+    "merged": "#b9a7f2",
+    "remember": "#9bbef5"
+  }
+}
