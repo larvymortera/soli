@@ -1,0 +1,24 @@
+{
+  "name": "eden",
+  "mode": "night",
+  "ui": {
+    "bg": "#131c16",
+    "surface": "#1b2b20",
+    "panel": "#2d4030",
+    "selection": "#405b3a",
+    "accent": "#b4d39a",
+    "fg": "#edf4e8",
+    "muted": "#afc3a5",
+    "border": "#738e69"
+  },
+  "syntax": {
+    "keyword": "#c7b4df",
+    "string": "#b4d39a",
+    "number": "#e0bb8a",
+    "function": "#99d0c0",
+    "type": "#a2c5df",
+    "error": "#e9a3a1",
+    "warning": "#dbcf8c",
+    "comment": "#afc3a5"
+  }
+}

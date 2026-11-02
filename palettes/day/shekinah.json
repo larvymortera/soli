@@ -1,0 +1,24 @@
+{
+  "name": "shekinah",
+  "mode": "day",
+  "ui": {
+    "bg": "#faf7fd",
+    "surface": "#eee7f5",
+    "panel": "#e4d5ef",
+    "selection": "#d4b8e8",
+    "accent": "#68408d",
+    "fg": "#2e203e",
+    "muted": "#655471",
+    "border": "#8b6e9c"
+  },
+  "syntax": {
+    "keyword": "#68408d",
+    "string": "#3b663c",
+    "number": "#885024",
+    "function": "#355e8b",
+    "type": "#79528a",
+    "error": "#a02d46",
+    "warning": "#795916",
+    "comment": "#655471"
+  }
+}

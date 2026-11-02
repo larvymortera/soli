@@ -1,0 +1,24 @@
+{
+  "name": "manna",
+  "mode": "day",
+  "ui": {
+    "bg": "#fbf7ed",
+    "surface": "#f0e9d9",
+    "panel": "#e5d9bf",
+    "selection": "#d9c69b",
+    "accent": "#805b17",
+    "fg": "#362b19",
+    "muted": "#6b5d43",
+    "border": "#927b50"
+  },
+  "syntax": {
+    "keyword": "#75428a",
+    "string": "#46632c",
+    "number": "#885024",
+    "function": "#315f80",
+    "type": "#785333",
+    "error": "#a32e38",
+    "warning": "#805b17",
+    "comment": "#6b5d43"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "argaman",
+  "mode": "night",
+  "ui": {
+    "bg": "#15111f",
+    "surface": "#21182c",
+    "panel": "#3e2443",
+    "selection": "#64375b",
+    "accent": "#cf9bf0",
+    "fg": "#eee5f5",
+    "muted": "#b6a5c8",
+    "border": "#82658f"
+  },
+  "syntax": {
+    "keyword": "#cf9bf0",
+    "string": "#aed6a1",
+    "number": "#efbc91",
+    "function": "#e6a7cc",
+    "type": "#a3c9ed",
+    "error": "#f5a0ac",
+    "warning": "#e5d08e",
+    "comment": "#b6a5c8"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "horeb",
+  "mode": "night",
+  "ui": {
+    "bg": "#171b20",
+    "surface": "#222930",
+    "panel": "#303b46",
+    "selection": "#455566",
+    "accent": "#b6c5d4",
+    "fg": "#edf2f7",
+    "muted": "#aab7c4",
+    "border": "#72869b"
+  },
+  "syntax": {
+    "keyword": "#c3b3e5",
+    "string": "#b3cca1",
+    "number": "#d8ba93",
+    "function": "#a2d0d8",
+    "type": "#b1c4e8",
+    "error": "#e5a2a7",
+    "warning": "#d8ca91",
+    "comment": "#aab7c4"
+  }
+}

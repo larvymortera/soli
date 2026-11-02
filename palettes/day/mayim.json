@@ -1,0 +1,24 @@
+{
+  "name": "mayim",
+  "mode": "day",
+  "ui": {
+    "bg": "#f1f8fb",
+    "surface": "#e1eef4",
+    "panel": "#cedfe8",
+    "selection": "#b5d3df",
+    "accent": "#176579",
+    "fg": "#19343e",
+    "muted": "#476372",
+    "border": "#698794"
+  },
+  "syntax": {
+    "keyword": "#694b8a",
+    "string": "#386637",
+    "number": "#8b512b",
+    "function": "#176579",
+    "type": "#385c93",
+    "error": "#a03748",
+    "warning": "#795b19",
+    "comment": "#476372"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "tekhelet",
+  "mode": "night",
+  "ui": {
+    "bg": "#101629",
+    "surface": "#17213a",
+    "panel": "#22365b",
+    "selection": "#304b72",
+    "accent": "#76d7ed",
+    "fg": "#e6f0ff",
+    "muted": "#a7b8d5",
+    "border": "#667da7"
+  },
+  "syntax": {
+    "keyword": "#b9a7f2",
+    "string": "#a8d5a2",
+    "number": "#f0bd86",
+    "function": "#76d7ed",
+    "type": "#9bbef5",
+    "error": "#ff9da4",
+    "warning": "#ead18b",
+    "comment": "#a7b8d5"
+  }
+}

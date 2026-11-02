@@ -1,0 +1,24 @@
+{
+  "name": "zayit",
+  "mode": "day",
+  "ui": {
+    "bg": "#f4f7ee",
+    "surface": "#e6ecdb",
+    "panel": "#d7e0c7",
+    "selection": "#c2d0ac",
+    "accent": "#4d682f",
+    "fg": "#28351e",
+    "muted": "#596747",
+    "border": "#7b8b65"
+  },
+  "syntax": {
+    "keyword": "#754983",
+    "string": "#4d682f",
+    "number": "#89502c",
+    "function": "#286477",
+    "type": "#5f548b",
+    "error": "#a03442",
+    "warning": "#795b19",
+    "comment": "#596747"
+  }
+}

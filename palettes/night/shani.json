@@ -1,0 +1,24 @@
+{
+  "name": "shani",
+  "mode": "night",
+  "ui": {
+    "bg": "#211014",
+    "surface": "#30191e",
+    "panel": "#4c202c",
+    "selection": "#6d3041",
+    "accent": "#f49ba9",
+    "fg": "#ffe9ed",
+    "muted": "#d9a6b0",
+    "border": "#a76c7a"
+  },
+  "syntax": {
+    "keyword": "#e7adf0",
+    "string": "#bed39c",
+    "number": "#efc18d",
+    "function": "#f49ba9",
+    "type": "#a8c8e8",
+    "error": "#ffa0a0",
+    "warning": "#e5d192",
+    "comment": "#d9a6b0"
+  }
+}
