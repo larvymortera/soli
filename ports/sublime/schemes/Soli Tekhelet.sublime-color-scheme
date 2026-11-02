@@ -1,0 +1,74 @@
+{
+  "name": "Soli Tekhelet",
+  "author": "Soli",
+  "variables": {
+    "bg": "#101629",
+    "surface": "#17213a",
+    "panel": "#22365b",
+    "selection": "#304b72",
+    "accent": "#76d7ed",
+    "fg": "#e6f0ff",
+    "muted": "#a7b8d5",
+    "border": "#667da7",
+    "keyword": "#b9a7f2",
+    "string": "#a8d5a2",
+    "number": "#f0bd86",
+    "function": "#76d7ed",
+    "type": "#9bbef5",
+    "error": "#ff9da4",
+    "warning": "#ead18b",
+    "comment": "#a7b8d5"
+  },
+  "globals": {
+    "background": "var(bg)",
+    "foreground": "var(fg)",
+    "caret": "var(accent)",
+    "selection": "var(selection)",
+    "selection_foreground": "var(fg)",
+    "line_highlight": "var(surface)",
+    "gutter": "var(bg)",
+    "gutter_foreground": "var(muted)",
+    "accent": "var(accent)",
+    "misspelling": "var(error)",
+    "line_diff_added": "var(string)",
+    "line_diff_modified": "var(warning)",
+    "line_diff_deleted": "var(error)"
+  },
+  "rules": [
+    {
+      "name": "Comment",
+      "scope": "comment",
+      "foreground": "var(comment)"
+    },
+    {
+      "name": "Keyword",
+      "scope": "keyword, storage",
+      "foreground": "var(keyword)"
+    },
+    {
+      "name": "String",
+      "scope": "string",
+      "foreground": "var(string)"
+    },
+    {
+      "name": "Number",
+      "scope": "constant.numeric, constant.language",
+      "foreground": "var(number)"
+    },
+    {
+      "name": "Function",
+      "scope": "entity.name.function, support.function",
+      "foreground": "var(function)"
+    },
+    {
+      "name": "Type",
+      "scope": "entity.name.type, entity.name.class, support.type, support.class",
+      "foreground": "var(type)"
+    },
+    {
+      "name": "Error",
+      "scope": "invalid",
+      "foreground": "var(error)"
+    }
+  ]
+}

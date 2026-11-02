@@ -1,0 +1,74 @@
+{
+  "name": "Soli Shani",
+  "author": "Soli",
+  "variables": {
+    "bg": "#211014",
+    "surface": "#30191e",
+    "panel": "#4c202c",
+    "selection": "#6d3041",
+    "accent": "#f49ba9",
+    "fg": "#ffe9ed",
+    "muted": "#d9a6b0",
+    "border": "#a76c7a",
+    "keyword": "#e7adf0",
+    "string": "#bed39c",
+    "number": "#efc18d",
+    "function": "#f49ba9",
+    "type": "#a8c8e8",
+    "error": "#ffa0a0",
+    "warning": "#e5d192",
+    "comment": "#d9a6b0"
+  },
+  "globals": {
+    "background": "var(bg)",
+    "foreground": "var(fg)",
+    "caret": "var(accent)",
+    "selection": "var(selection)",
+    "selection_foreground": "var(fg)",
+    "line_highlight": "var(surface)",
+    "gutter": "var(bg)",
+    "gutter_foreground": "var(muted)",
+    "accent": "var(accent)",
+    "misspelling": "var(error)",
+    "line_diff_added": "var(string)",
+    "line_diff_modified": "var(warning)",
+    "line_diff_deleted": "var(error)"
+  },
+  "rules": [
+    {
+      "name": "Comment",
+      "scope": "comment",
+      "foreground": "var(comment)"
+    },
+    {
+      "name": "Keyword",
+      "scope": "keyword, storage",
+      "foreground": "var(keyword)"
+    },
+    {
+      "name": "String",
+      "scope": "string",
+      "foreground": "var(string)"
+    },
+    {
+      "name": "Number",
+      "scope": "constant.numeric, constant.language",
+      "foreground": "var(number)"
+    },
+    {
+      "name": "Function",
+      "scope": "entity.name.function, support.function",
+      "foreground": "var(function)"
+    },
+    {
+      "name": "Type",
+      "scope": "entity.name.type, entity.name.class, support.type, support.class",
+      "foreground": "var(type)"
+    },
+    {
+      "name": "Error",
+      "scope": "invalid",
+      "foreground": "var(error)"
+    }
+  ]
+}

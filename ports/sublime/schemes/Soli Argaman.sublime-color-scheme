@@ -1,0 +1,74 @@
+{
+  "name": "Soli Argaman",
+  "author": "Soli",
+  "variables": {
+    "bg": "#15111f",
+    "surface": "#21182c",
+    "panel": "#3e2443",
+    "selection": "#64375b",
+    "accent": "#cf9bf0",
+    "fg": "#eee5f5",
+    "muted": "#b6a5c8",
+    "border": "#82658f",
+    "keyword": "#cf9bf0",
+    "string": "#aed6a1",
+    "number": "#efbc91",
+    "function": "#e6a7cc",
+    "type": "#a3c9ed",
+    "error": "#f5a0ac",
+    "warning": "#e5d08e",
+    "comment": "#b6a5c8"
+  },
+  "globals": {
+    "background": "var(bg)",
+    "foreground": "var(fg)",
+    "caret": "var(accent)",
+    "selection": "var(selection)",
+    "selection_foreground": "var(fg)",
+    "line_highlight": "var(surface)",
+    "gutter": "var(bg)",
+    "gutter_foreground": "var(muted)",
+    "accent": "var(accent)",
+    "misspelling": "var(error)",
+    "line_diff_added": "var(string)",
+    "line_diff_modified": "var(warning)",
+    "line_diff_deleted": "var(error)"
+  },
+  "rules": [
+    {
+      "name": "Comment",
+      "scope": "comment",
+      "foreground": "var(comment)"
+    },
+    {
+      "name": "Keyword",
+      "scope": "keyword, storage",
+      "foreground": "var(keyword)"
+    },
+    {
+      "name": "String",
+      "scope": "string",
+      "foreground": "var(string)"
+    },
+    {
+      "name": "Number",
+      "scope": "constant.numeric, constant.language",
+      "foreground": "var(number)"
+    },
+    {
+      "name": "Function",
+      "scope": "entity.name.function, support.function",
+      "foreground": "var(function)"
+    },
+    {
+      "name": "Type",
+      "scope": "entity.name.type, entity.name.class, support.type, support.class",
+      "foreground": "var(type)"
+    },
+    {
+      "name": "Error",
+      "scope": "invalid",
+      "foreground": "var(error)"
+    }
+  ]
+}

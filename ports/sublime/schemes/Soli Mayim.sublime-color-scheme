@@ -1,0 +1,74 @@
+{
+  "name": "Soli Mayim",
+  "author": "Soli",
+  "variables": {
+    "bg": "#f1f8fb",
+    "surface": "#e1eef4",
+    "panel": "#cedfe8",
+    "selection": "#b5d3df",
+    "accent": "#176579",
+    "fg": "#19343e",
+    "muted": "#476372",
+    "border": "#698794",
+    "keyword": "#694b8a",
+    "string": "#386637",
+    "number": "#8b512b",
+    "function": "#176579",
+    "type": "#385c93",
+    "error": "#a03748",
+    "warning": "#795b19",
+    "comment": "#476372"
+  },
+  "globals": {
+    "background": "var(bg)",
+    "foreground": "var(fg)",
+    "caret": "var(accent)",
+    "selection": "var(selection)",
+    "selection_foreground": "var(fg)",
+    "line_highlight": "var(surface)",
+    "gutter": "var(bg)",
+    "gutter_foreground": "var(muted)",
+    "accent": "var(accent)",
+    "misspelling": "var(error)",
+    "line_diff_added": "var(string)",
+    "line_diff_modified": "var(warning)",
+    "line_diff_deleted": "var(error)"
+  },
+  "rules": [
+    {
+      "name": "Comment",
+      "scope": "comment",
+      "foreground": "var(comment)"
+    },
+    {
+      "name": "Keyword",
+      "scope": "keyword, storage",
+      "foreground": "var(keyword)"
+    },
+    {
+      "name": "String",
+      "scope": "string",
+      "foreground": "var(string)"
+    },
+    {
+      "name": "Number",
+      "scope": "constant.numeric, constant.language",
+      "foreground": "var(number)"
+    },
+    {
+      "name": "Function",
+      "scope": "entity.name.function, support.function",
+      "foreground": "var(function)"
+    },
+    {
+      "name": "Type",
+      "scope": "entity.name.type, entity.name.class, support.type, support.class",
+      "foreground": "var(type)"
+    },
+    {
+      "name": "Error",
+      "scope": "invalid",
+      "foreground": "var(error)"
+    }
+  ]
+}

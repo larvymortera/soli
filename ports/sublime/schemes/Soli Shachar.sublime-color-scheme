@@ -1,0 +1,74 @@
+{
+  "name": "Soli Shachar",
+  "author": "Soli",
+  "variables": {
+    "bg": "#fcf3f1",
+    "surface": "#f3e3df",
+    "panel": "#e9d1cb",
+    "selection": "#ddb8b0",
+    "accent": "#994655",
+    "fg": "#42282d",
+    "muted": "#77575e",
+    "border": "#a2767c",
+    "keyword": "#794785",
+    "string": "#41633c",
+    "number": "#895025",
+    "function": "#326176",
+    "type": "#994655",
+    "error": "#a02d3d",
+    "warning": "#795817",
+    "comment": "#77575e"
+  },
+  "globals": {
+    "background": "var(bg)",
+    "foreground": "var(fg)",
+    "caret": "var(accent)",
+    "selection": "var(selection)",
+    "selection_foreground": "var(fg)",
+    "line_highlight": "var(surface)",
+    "gutter": "var(bg)",
+    "gutter_foreground": "var(muted)",
+    "accent": "var(accent)",
+    "misspelling": "var(error)",
+    "line_diff_added": "var(string)",
+    "line_diff_modified": "var(warning)",
+    "line_diff_deleted": "var(error)"
+  },
+  "rules": [
+    {
+      "name": "Comment",
+      "scope": "comment",
+      "foreground": "var(comment)"
+    },
+    {
+      "name": "Keyword",
+      "scope": "keyword, storage",
+      "foreground": "var(keyword)"
+    },
+    {
+      "name": "String",
+      "scope": "string",
+      "foreground": "var(string)"
+    },
+    {
+      "name": "Number",
+      "scope": "constant.numeric, constant.language",
+      "foreground": "var(number)"
+    },
+    {
+      "name": "Function",
+      "scope": "entity.name.function, support.function",
+      "foreground": "var(function)"
+    },
+    {
+      "name": "Type",
+      "scope": "entity.name.type, entity.name.class, support.type, support.class",
+      "foreground": "var(type)"
+    },
+    {
+      "name": "Error",
+      "scope": "invalid",
+      "foreground": "var(error)"
+    }
+  ]
+}
