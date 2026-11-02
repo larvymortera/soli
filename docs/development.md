@@ -45,3 +45,12 @@ from the palette. Put its native files in `ports/<application>/`, extend generat
 file checks and tests, and add installation instructions in `docs/`. Keep
 application-specific behavior and scope mappings in the adapter. Avoid runtime
 build dependencies for end users.
+
+## Terminal and zsh port
+
+`tools/generate.py` also generates ten `.terminal` profiles using stdlib
+`plistlib`, with embedded keyed NSColor archives. ANSI mapping lives in
+`ANSI_ROLES`; no separate palette or runtime Python is required. See
+[Terminal documentation](terminal.md) for the mapping and manual checks.
+The standalone `ports/zsh/soli.zsh` prompt uses named ANSI colors and is maintained
+directly. Test runtime behavior with zsh when available.

@@ -1,12 +1,13 @@
 # Soli
 
-Ten coordinated day and night palettes for tmux and Sublime Text. Shared JSON
-palettes generate native application files; users do not need Python to install
-either port. The tmux port requires Bash and tmux; Sublime schemes target Sublime
-Text 3.1 and later. No special fonts are required.
+Ten coordinated day and night palettes for tmux, Sublime Text, and macOS Terminal.
+Shared JSON palettes generate native application files; users do not need Python
+to install the generated ports. The tmux port requires Bash and tmux; Sublime
+schemes target Sublime Text 3.1 and later. No special fonts are required.
 
 - [tmux installation, options, and preview](docs/tmux.md)
 - [Sublime Text installation](docs/sublime.md)
+- [macOS Terminal and plain zsh](docs/terminal.md)
 - [Palette format and adding ports](docs/development.md)
 
 ## Presets
@@ -47,6 +48,8 @@ soli/
 │   │   │   ├── init.sh             # Validate options and apply the status layout
 │   │   │   └── helpers.sh          # Read tmux options and validate colors
 │   │   └── themes/*.tmuxtheme      # Generated palettes; eight interface roles
+│   ├── terminal/profiles/          # Generated macOS .terminal profiles
+│   ├── zsh/soli.zsh                # Optional plain-zsh ANSI prompt
 │   └── sublime/
 │       └── schemes/
 │           └── *.sublime-color-scheme  # Generated editor and syntax colors
@@ -68,8 +71,9 @@ soli/
 ```
 
 Edit colors in `palettes/` and application mappings in `tools/generate.py`.
-Generation produces the native files under `ports/tmux/themes/` and
-`ports/sublime/schemes/`; include those outputs alongside source changes.
+Generation produces the native files under `ports/tmux/themes/`,
+`ports/sublime/schemes/`, and `ports/terminal/profiles/`; include those outputs
+alongside source changes.
 The tmux runtime scripts are maintained directly in `ports/tmux/scripts/`.
 
 Users install the native port files directly. The root `soli.tmux` delegates to
