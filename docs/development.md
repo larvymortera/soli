@@ -55,6 +55,15 @@ build dependencies for end users.
 The standalone `ports/zsh/soli.zsh` prompt uses named ANSI colors and is maintained
 directly. Test runtime behavior with zsh when available.
 
+## iTerm2 port
+
+The generator writes ten XML `.itermcolors` presets to `ports/iterm2/presets/`
+using stdlib `plistlib`. Each color uses normalized sRGB components and full
+alpha. ANSI colors reuse `ANSI_ROLES`, including muted text for bright black.
+Tests cover native plist structure, palette round trips, text/selection/cursor
+contrast, and missing/stale/unexpected outputs. See [iTerm2 installation](iterm2.md)
+for usage and manual checks.
+
 ## Codex CLI port
 
 The generator writes ten XML TextMate `.tmTheme` files to `ports/codex/themes/`

@@ -1,6 +1,6 @@
 # Soli
 
-Ten coordinated day and night palettes for tmux, Sublime Text, macOS Terminal,
+Ten coordinated day and night palettes for tmux, Sublime Text, macOS Terminal, iTerm2,
 Codex CLI, Claude Code, and OpenCode.
 Shared JSON palettes generate native application files; users do not need Python
 to install the generated ports. The tmux port requires Bash and tmux; Sublime
@@ -12,6 +12,7 @@ schemes target Sublime Text 3.1 and later. No special fonts are required.
 - [Codex CLI installation](docs/codex.md)
 - [Sublime Text installation](docs/sublime.md)
 - [macOS Terminal and plain zsh](docs/terminal.md)
+- [iTerm2 installation and tmux colors](docs/iterm2.md)
 - [Palette format and adding ports](docs/development.md)
 
 ## Presets
@@ -56,6 +57,7 @@ soli/
 │   ├── claude/themes/*.json        # Generated Claude Code interface themes
 │   ├── codex/themes/*.tmTheme      # Generated Codex CLI syntax themes
 │   ├── terminal/profiles/          # Generated macOS .terminal profiles
+│   ├── iterm2/presets/             # Generated iTerm2 .itermcolors presets
 │   ├── zsh/soli.zsh                # Optional plain-zsh ANSI prompt
 │   └── sublime/
 │       └── schemes/
@@ -83,7 +85,7 @@ soli/
 Edit colors in `palettes/` and application mappings in `tools/generate.py`.
 Generation produces the native files under `ports/tmux/themes/`,
 `ports/sublime/schemes/`, `ports/terminal/profiles/`, `ports/codex/themes/`,
-`ports/claude/themes/`, and `ports/opencode/themes/`; include those outputs
+`ports/claude/themes/`, `ports/opencode/themes/`, and `ports/iterm2/presets/`; include those outputs
 alongside source changes.
 The tmux runtime scripts are maintained directly in `ports/tmux/scripts/`.
 

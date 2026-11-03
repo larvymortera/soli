@@ -57,6 +57,26 @@ def terminal_profile(palette):
     return plistlib.dumps(profile, sort_keys=True).decode('utf-8')
 
 
+def iterm2_preset(palette):
+    """Encode native iTerm2 color dictionaries with explicit sRGB channels."""
+    def color(value):
+        channels = {channel + ' Component': int(value[i:i + 2], 16) / 255
+                    for channel, i in zip(('Red', 'Green', 'Blue'), (1, 3, 5))}
+        return dict(channels, **{'Alpha Component': 1.0, 'Color Space': 'sRGB'})
+
+    ui = palette['ui']
+    preset = {key + ' Color': color(ui[role]) for key, role in {
+        'Background': 'bg', 'Foreground': 'fg', 'Bold': 'fg',
+        'Cursor': 'accent', 'Cursor Text': 'bg',
+        'Selection': 'selection', 'Selected Text': 'fg',
+    }.items()}
+    for index, (section, role) in enumerate(ANSI_ROLES):
+        preset[f'Ansi {index} Color'] = color(palette[section][role])
+        bright = ui['muted'] if index == 0 else palette[section][role]
+        preset[f'Ansi {index + 8} Color'] = color(bright)
+    return plistlib.dumps(preset, sort_keys=True).decode('utf-8')
+
+
 def codex_theme(palette):
     """Encode a TextMate theme for Codex CLI's syntax highlighter."""
     ui, syntax = palette['ui'], palette['syntax']
@@ -154,6 +174,7 @@ def outputs(palette):
     tmux += ''.join(f'{role}={ui[role]}\n' for role in UI)
     yield ROOT / 'ports/tmux/themes' / f'{name}.tmuxtheme', tmux
     yield ROOT / 'ports/terminal/profiles' / f'Soli {name.title()}.terminal', terminal_profile(palette)
+    yield ROOT / 'ports/iterm2/presets' / f'Soli {name.title()}.itermcolors', iterm2_preset(palette)
     yield ROOT / 'ports/codex/themes' / f'soli-{name}.tmTheme', codex_theme(palette)
     yield ROOT / 'ports/claude/themes' / f'soli-{name}.json', claude_theme(palette)
     yield ROOT / 'ports/opencode/themes' / f'soli-{name}.json', opencode_theme(palette)
@@ -187,6 +208,7 @@ def generate(check=False):
     for folder, pattern in [('ports/tmux/themes', '*.tmuxtheme'),
                             ('ports/sublime/schemes', '*.sublime-color-scheme'),
                             ('ports/terminal/profiles', '*.terminal'),
+                            ('ports/iterm2/presets', '*.itermcolors'),
                             ('ports/codex/themes', '*.tmTheme'),
                             ('ports/claude/themes', '*.json'),
                             ('ports/opencode/themes', '*.json')]:

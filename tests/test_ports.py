@@ -19,7 +19,7 @@ from validate import validate, contrast
 class PortsTest(unittest.TestCase):
     def test_sources_and_outputs(self):
         self.assertEqual(validate(), 10)
-        self.assertEqual(generate(check=True), 60)
+        self.assertEqual(generate(check=True), 70)
 
     def test_codex_themes(self):
         for palette in load_palettes():
@@ -47,7 +47,7 @@ class PortsTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
             with patch('generate.ROOT', root), patch('generate.load_palettes', return_value=palettes):
-                self.assertEqual(generate(), 60)
+                self.assertEqual(generate(), 70)
                 theme = root / 'ports/codex/themes/soli-tekhelet.tmTheme'
                 theme.write_text('stale')
                 with self.assertRaisesRegex(ValueError, 'soli-tekhelet.tmTheme'):
@@ -156,6 +156,60 @@ class PortsTest(unittest.TestCase):
                 generate()
                 (theme.parent / 'obsolete.json').write_text('{}')
                 with self.assertRaisesRegex(ValueError, 'obsolete.json'):
+                    generate(check=True)
+
+    def test_iterm2_presets(self):
+        def decode(color):
+            self.assertEqual(set(color), {'Red Component', 'Green Component',
+                                         'Blue Component', 'Alpha Component', 'Color Space'})
+            self.assertEqual(color['Color Space'], 'sRGB')
+            self.assertEqual(color['Alpha Component'], 1.0)
+            channels = [color[channel + ' Component'] for channel in ('Red', 'Green', 'Blue')]
+            for channel in channels:
+                self.assertIsInstance(channel, float)
+                self.assertTrue(0 <= channel <= 1)
+            return '#' + ''.join(f'{round(channel * 255):02x}' for channel in channels)
+
+        for palette in load_palettes():
+            with self.subTest(theme=palette['name']):
+                path = ROOT / 'ports/iterm2/presets' / f'Soli {palette["name"].title()}.itermcolors'
+                preset = plistlib.loads(path.read_bytes())
+                roles = {'Background': 'bg', 'Foreground': 'fg', 'Bold': 'fg',
+                         'Cursor': 'accent', 'Cursor Text': 'bg',
+                         'Selection': 'selection', 'Selected Text': 'fg'}
+                self.assertEqual(set(preset), {key + ' Color' for key in roles} |
+                                 {f'Ansi {index} Color' for index in range(16)})
+                colors = {key: decode(value) for key, value in preset.items()}
+                for key, role in roles.items():
+                    self.assertEqual(colors[key + ' Color'], palette['ui'][role])
+                for index, (section, role) in enumerate(ANSI_ROLES):
+                    self.assertEqual(colors[f'Ansi {index} Color'], palette[section][role])
+                    bright = palette['ui']['muted'] if index == 0 else palette[section][role]
+                    self.assertEqual(colors[f'Ansi {index + 8} Color'], bright)
+                for foreground, background in (('Foreground', 'Background'), ('Bold', 'Background'),
+                                              ('Selected Text', 'Selection'), ('Cursor Text', 'Cursor')):
+                    self.assertGreaterEqual(contrast(colors[foreground + ' Color'],
+                                                     colors[background + ' Color']), 4.5)
+                for index in range(1, 16):
+                    self.assertGreaterEqual(contrast(colors[f'Ansi {index} Color'],
+                                                     colors['Background Color']), 4.5)
+
+    def test_iterm2_output_consistency(self):
+        palettes = load_palettes()
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            with patch('generate.ROOT', root), patch('generate.load_palettes', return_value=palettes):
+                generate()
+                theme = root / 'ports/iterm2/presets/Soli Argaman.itermcolors'
+                theme.write_text('stale')
+                with self.assertRaisesRegex(ValueError, 'Soli Argaman.itermcolors'):
+                    generate(check=True)
+                theme.unlink()
+                with self.assertRaisesRegex(ValueError, 'Soli Argaman.itermcolors'):
+                    generate(check=True)
+                generate()
+                (theme.parent / 'obsolete.itermcolors').write_text('obsolete')
+                with self.assertRaisesRegex(ValueError, 'obsolete.itermcolors'):
                     generate(check=True)
 
     def test_terminal_profiles(self):
