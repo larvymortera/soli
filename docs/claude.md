@@ -1,6 +1,6 @@
 # Claude Code
 
-All ten Soli palettes are available as native Claude Code custom themes.
+All twelve Soli palettes are available as native Claude Code custom themes.
 No Python, plugin, or patch to the CLI is needed to use the generated JSON files.
 Use a Claude Code version with named custom theme support; check that `/theme`
 offers **New custom theme…** before installing.

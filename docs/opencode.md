@@ -1,6 +1,6 @@
 # OpenCode
 
-Soli provides ten native JSON themes for the OpenCode terminal UI. Copy the
+Soli provides twelve native JSON themes for the OpenCode terminal UI. Copy the
 generated files directly; Python is not required at runtime. Use a terminal
 with truecolor support for accurate colors.
 

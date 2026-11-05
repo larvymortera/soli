@@ -1,0 +1,24 @@
+{
+  "name": "yom",
+  "mode": "day",
+  "ui": {
+    "bg": "#fbf7ed",
+    "surface": "#f0e9d9",
+    "panel": "#e5d9bf",
+    "selection": "#d9c69b",
+    "accent": "#176579",
+    "fg": "#362b19",
+    "muted": "#6b5d43",
+    "border": "#927b50"
+  },
+  "syntax": {
+    "keyword": "#68408d",
+    "string": "#4d682f",
+    "number": "#885024",
+    "function": "#176579",
+    "type": "#385c93",
+    "error": "#a02d3d",
+    "warning": "#805b17",
+    "comment": "#6b5d43"
+  }
+}

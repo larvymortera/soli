@@ -18,8 +18,8 @@ from validate import validate, contrast
 
 class PortsTest(unittest.TestCase):
     def test_sources_and_outputs(self):
-        self.assertEqual(validate(), 10)
-        self.assertEqual(generate(check=True), 70)
+        self.assertEqual(validate(), 12)
+        self.assertEqual(generate(check=True), 84)
 
     def test_codex_themes(self):
         for palette in load_palettes():
@@ -47,7 +47,7 @@ class PortsTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
             with patch('generate.ROOT', root), patch('generate.load_palettes', return_value=palettes):
-                self.assertEqual(generate(), 70)
+                self.assertEqual(generate(), 84)
                 theme = root / 'ports/codex/themes/soli-tekhelet.tmTheme'
                 theme.write_text('stale')
                 with self.assertRaisesRegex(ValueError, 'soli-tekhelet.tmTheme'):

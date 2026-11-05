@@ -1,6 +1,6 @@
 # Codex CLI
 
-Soli provides all ten palettes as native TextMate `.tmTheme` files for Codex CLI.
+Soli provides all twelve palettes as native TextMate `.tmTheme` files for Codex CLI.
 Use a Codex CLI version with `/theme` and custom TextMate theme support.
 Python is not required to install or use the themes.
 

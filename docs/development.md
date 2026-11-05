@@ -48,7 +48,7 @@ build dependencies for end users.
 
 ## Terminal and zsh port
 
-`tools/generate.py` also generates ten `.terminal` profiles using stdlib
+`tools/generate.py` also generates twelve `.terminal` profiles using stdlib
 `plistlib`, with embedded keyed NSColor archives. ANSI mapping lives in
 `ANSI_ROLES`; no separate palette or runtime Python is required. See
 [Terminal documentation](terminal.md) for the mapping and manual checks.
@@ -57,7 +57,7 @@ directly. Test runtime behavior with zsh when available.
 
 ## iTerm2 port
 
-The generator writes ten XML `.itermcolors` presets to `ports/iterm2/presets/`
+The generator writes twelve XML `.itermcolors` presets to `ports/iterm2/presets/`
 using stdlib `plistlib`. Each color uses normalized sRGB components and full
 alpha. ANSI colors reuse `ANSI_ROLES`, including muted text for bright black.
 Tests cover native plist structure, palette round trips, text/selection/cursor
@@ -66,7 +66,7 @@ for usage and manual checks.
 
 ## Codex CLI port
 
-The generator writes ten XML TextMate `.tmTheme` files to `ports/codex/themes/`
+The generator writes twelve XML TextMate `.tmTheme` files to `ports/codex/themes/`
 using stdlib `plistlib`. Global settings map shared UI roles, syntax rules reuse
 `SCOPES`, and inserted/deleted/changed markup uses string/error/warning colors.
 Generated-file checks cover missing, stale, and unexpected Codex themes. See
@@ -74,7 +74,7 @@ Generated-file checks cover missing, stale, and unexpected Codex themes. See
 
 ## Claude Code port
 
-The generator writes ten native JSON themes to `ports/claude/themes/`. Each
+The generator writes twelve native JSON themes to `ports/claude/themes/`. Each
 selects a light or dark base from the source mode and maps documented interface
 tokens to shared UI and diagnostic roles. Syntax and diff colors fall through to
 the base preset. Shimmer tokens reuse their corresponding base colors; no new
@@ -84,7 +84,7 @@ outputs. See [Claude Code installation](claude.md) for scope and manual checks.
 
 ## OpenCode port
 
-The generator writes ten native JSON themes to `ports/opencode/themes/` with
+The generator writes twelve native JSON themes to `ports/opencode/themes/` with
 literal hex values. Each file is a fixed preset in either appearance mode.
 Interface, Markdown, syntax, and diff mappings live in `opencode_theme`.
 Panel and element backgrounds use `surface` to keep secondary text readable.

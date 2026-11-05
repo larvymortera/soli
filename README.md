@@ -1,6 +1,6 @@
 # Soli
 
-Ten coordinated day and night palettes for tmux, Sublime Text, macOS Terminal, iTerm2,
+Twelve coordinated day and night palettes for tmux, Sublime Text, macOS Terminal, iTerm2,
 Codex CLI, Claude Code, and OpenCode.
 Shared JSON palettes generate native application files; users do not need Python
 to install the generated ports. The tmux port requires Bash and tmux; Sublime
@@ -25,6 +25,7 @@ schemes target Sublime Text 3.1 and later. No special fonts are required.
 | `shani` | Crimson and dark red | `#211014` | `#f49ba9` |
 | `argaman` | Royal purple and magenta | `#15111f` | `#cf9bf0` |
 | `horeb` | Slate charcoal and cool gray | `#171b20` | `#b6c5d4` |
+| `layla` | Horeb charcoal with the night palettes’ colors | `#171b20` | `#76d7ed` |
 | `eden` | Forest green and earthy sage | `#131c16` | `#b4d39a` |
 
 ### Day themes
@@ -35,7 +36,23 @@ schemes target Sublime Text 3.1 and later. No special fonts are required.
 | `manna` | Warm ivory with honey gold | `#fbf7ed` | `#805b17` |
 | `mayim` | Pale blue with deep teal | `#f1f8fb` | `#176579` |
 | `zayit` | Soft sage with olive green | `#f4f7ee` | `#4d682f` |
+| `yom` | Manna ivory with the day palettes’ colors | `#fbf7ed` | `#176579` |
 | `shachar` | Blush pink with muted rose | `#fcf3f1` | `#994655` |
+
+`yom` (day) and `layla` (night) synthesize the existing Soli palettes, reusing
+original colors without blending or adding shades. Both use teal accents,
+purple keywords, green strings, amber numbers, and blue types. Select the same
+preset in each application for a coordinated workspace.
+
+| Roles | Yom source | Layla source |
+| --- | --- | --- |
+| Background, surface, panel, selection, foreground, muted, border, comments | Manna | Horeb |
+| Accent, functions, types | Mayim | Tekhelet |
+| Keywords | Shekinah | Argaman |
+| Strings | Zayit | Eden |
+| Numbers | Manna | Tekhelet |
+| Errors | Shachar | Shani |
+| Warnings | Manna | Shani |
 
 Each palette includes shared interface colors and syntax colors. In tmux, select
 a preset with `@soli-theme`; there is no separate `@soli-mode` setting.
@@ -45,8 +62,8 @@ a preset with `@soli-theme`; there is no separate `@soli-mode` setting.
 ```text
 soli/
 ├── palettes/                       # Source of truth for all application ports
-│   ├── day/*.json                  # Five light palettes
-│   └── night/*.json                # Five dark palettes
+│   ├── day/*.json                  # Six light palettes
+│   └── night/*.json                # Six dark palettes
 ├── ports/
 │   ├── tmux/
 │   │   ├── scripts/

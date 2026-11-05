@@ -1,0 +1,33 @@
+{
+  "name": "Soli Layla",
+  "base": "dark",
+  "overrides": {
+    "claude": "#76d7ed",
+    "claudeShimmer": "#76d7ed",
+    "text": "#edf2f7",
+    "inverseText": "#171b20",
+    "inactive": "#aab7c4",
+    "inactiveShimmer": "#aab7c4",
+    "subtle": "#aab7c4",
+    "suggestion": "#76d7ed",
+    "permission": "#76d7ed",
+    "permissionShimmer": "#76d7ed",
+    "promptBorder": "#72869b",
+    "promptBorderShimmer": "#72869b",
+    "planMode": "#76d7ed",
+    "userMessageBackground": "#222930",
+    "userMessageBackgroundHover": "#222930",
+    "bashMessageBackgroundColor": "#222930",
+    "memoryBackgroundColor": "#222930",
+    "selectionBg": "#455566",
+    "composerSidebarBackground": "#222930",
+    "briefLabelYou": "#edf2f7",
+    "briefLabelClaude": "#76d7ed",
+    "success": "#b4d39a",
+    "error": "#ffa0a0",
+    "warning": "#e5d192",
+    "warningShimmer": "#e5d192",
+    "merged": "#cf9bf0",
+    "remember": "#9bbef5"
+  }
+}

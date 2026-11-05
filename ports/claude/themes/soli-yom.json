@@ -1,0 +1,33 @@
+{
+  "name": "Soli Yom",
+  "base": "light",
+  "overrides": {
+    "claude": "#176579",
+    "claudeShimmer": "#176579",
+    "text": "#362b19",
+    "inverseText": "#fbf7ed",
+    "inactive": "#6b5d43",
+    "inactiveShimmer": "#6b5d43",
+    "subtle": "#6b5d43",
+    "suggestion": "#176579",
+    "permission": "#176579",
+    "permissionShimmer": "#176579",
+    "promptBorder": "#927b50",
+    "promptBorderShimmer": "#927b50",
+    "planMode": "#176579",
+    "userMessageBackground": "#f0e9d9",
+    "userMessageBackgroundHover": "#f0e9d9",
+    "bashMessageBackgroundColor": "#f0e9d9",
+    "memoryBackgroundColor": "#f0e9d9",
+    "selectionBg": "#d9c69b",
+    "composerSidebarBackground": "#f0e9d9",
+    "briefLabelYou": "#362b19",
+    "briefLabelClaude": "#176579",
+    "success": "#4d682f",
+    "error": "#a02d3d",
+    "warning": "#805b17",
+    "warningShimmer": "#805b17",
+    "merged": "#68408d",
+    "remember": "#385c93"
+  }
+}

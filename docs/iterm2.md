@@ -1,6 +1,6 @@
 # Soli for iTerm2
 
-All ten palettes are available as native color presets in `ports/iterm2/presets/`.
+All twelve palettes are available as native color presets in `ports/iterm2/presets/`.
 No Python, special font, or prompt framework is required to install them.
 
 ## Install

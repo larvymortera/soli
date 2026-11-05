@@ -6,8 +6,8 @@ SOLI_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 source "$SOLI_ROOT/scripts/helpers.sh"
 soli_theme="${1:-$(get_tmux_option '@soli-theme' 'tekhelet')}"
 case "$soli_theme" in
-  tekhelet|shani|argaman|shekinah|horeb|eden|manna|mayim|zayit|shachar) ;;
-  *) soli_error "Unknown theme '$soli_theme'. Choose tekhelet, shani, argaman, shekinah, horeb, eden, manna, mayim, zayit, or shachar."; exit 1 ;;
+  tekhelet|shani|argaman|shekinah|horeb|eden|manna|mayim|zayit|shachar|yom|layla) ;;
+  *) soli_error "Unknown theme '$soli_theme'. Choose tekhelet, shani, argaman, shekinah, horeb, eden, manna, mayim, zayit, shachar, yom, or layla."; exit 1 ;;
 esac
 soli_position="$(get_tmux_option '@soli-status-position' 'bottom')"
 case "$soli_position" in

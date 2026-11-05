@@ -1,0 +1,24 @@
+{
+  "name": "layla",
+  "mode": "night",
+  "ui": {
+    "bg": "#171b20",
+    "surface": "#222930",
+    "panel": "#303b46",
+    "selection": "#455566",
+    "accent": "#76d7ed",
+    "fg": "#edf2f7",
+    "muted": "#aab7c4",
+    "border": "#72869b"
+  },
+  "syntax": {
+    "keyword": "#cf9bf0",
+    "string": "#b4d39a",
+    "number": "#f0bd86",
+    "function": "#76d7ed",
+    "type": "#9bbef5",
+    "error": "#ffa0a0",
+    "warning": "#e5d192",
+    "comment": "#aab7c4"
+  }
+}

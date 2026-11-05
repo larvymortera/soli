@@ -10,7 +10,7 @@ No Python, prompt framework, or special font is required.
 3. Open a new window using that profile via **Shell > New Window**.
    Optionally make the profile the default in Settings for future windows.
 
-All ten palettes have profiles. Selecting a different profile changes the
+All twelve palettes have profiles. Selecting a different profile changes the
 terminal palette; the zsh prompt below follows its ANSI colors automatically.
 There is no shell command that imports or switches your macOS profile.
 Profiles contain colors, not startup commands or a bundled font.

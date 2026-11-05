@@ -32,7 +32,7 @@ has no continuum plugin and can be reloaded directly.
 
 | User option | Default | Values |
 | --- | --- | --- |
-| `@soli-theme` | `tekhelet` | One of the ten preset names above |
+| `@soli-theme` | `tekhelet` | One of the twelve preset names above |
 | `@soli-status-position` | `bottom` | `top` or `bottom` |
 | `@soli-color-bg` | Preset background | `#RRGGBB` |
 | `@soli-color-surface` | Preset status surface | `#RRGGBB` |
